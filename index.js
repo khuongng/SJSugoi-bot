@@ -34,4 +34,20 @@ module.exports = bot
 
 // })
 
+client.slashcommands = new Discord.Collection()
+
+client.loadSlashCommands = (bot, reload) => require("./handlers/slashcommands")(bot, reload)
+client.loadSlashCommands(bot, false)
+
+client.on("interactionCreate", (interaction) =>{
+    if(!interaction.isCommand()) return
+    if(!interaction.inGuild()) return interaction.reply("This can only be used in a server.")
+
+    const slashcmd = client.slashcommands.get(interaction.commandName)
+    if(!slashcmd) return interaction.reply("Invalid slash command.")
+    if(slashcmd.perms && !interaction.member.permissions.has(slashcmd.perm))
+        return interaction.reply("No permissions.")
+    slashcmd.run(client, interaction)
+})
+
 client.login(process.env.TOKEN)
