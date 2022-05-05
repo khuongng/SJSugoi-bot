@@ -1,9 +1,12 @@
 const Discord = require("discord.js")
 require("dotenv").config()
 
+const {Client, Intents} = require("discord.js")
+const {Player} = require("discord-player")
+
 const client = new Discord.Client({
     intents: [
-        "GUILDS", "GUILD_MESSAGES"
+        "GUILDS", "GUILD_MESSAGES", "GUILD_VOICE_STATES"
     ]
 })
 
@@ -12,6 +15,8 @@ let bot = {
     prefix: "su.",
     owners: ["287905034656677888"]
 }
+
+client.player = new Player(client)
 
 client.commands = new Discord.Collection()
 client.events = new Discord.Collection()
@@ -39,7 +44,7 @@ client.slashcommands = new Discord.Collection()
 client.loadSlashCommands = (bot, reload) => require("./handlers/slashcommands")(bot, reload)
 client.loadSlashCommands(bot, false)
 
-client.on("interactionCreate", (interaction) =>{
+client.on("interactionCreate", async (interaction) => {
     if(!interaction.isCommand()) return
     if(!interaction.inGuild()) return interaction.reply("This can only be used in a server.")
 
