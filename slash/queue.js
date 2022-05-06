@@ -8,8 +8,14 @@ const run = async (client, interaction) => {
     const noTrack = new MessageEmbed()
         .setDescription(`No tracks in queue`)
 
-    if(!queue || !queue.playing || !queue.tracks[0]) return await interaction.reply({embeds: [noTrack]})
-    
+    if(!queue || !queue.playing) return await interaction.reply({embeds: [noTrack]})
+
+    const noQueue = new MessageEmbed()
+        .addFields(
+            {name: `**Currently Playing**`, value: `${queue.current.title}`},
+            {name: `**In Queue**`, value: `No tracks in queue`},
+        )
+    if(!queue.tracks[0]) return await interaction.reply({embeds: [noQueue]})
 
     const tracks = queue.tracks.slice(0,10).map((track, i) => {
         return `${i + 1}. **[${track.title}](${track.url})** -- @${track.requestedBy.id}`
