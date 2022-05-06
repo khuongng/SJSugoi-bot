@@ -18,7 +18,7 @@ const run = async (client, interaction) => {
     if(!queue.tracks[0]) return await interaction.reply({embeds: [noQueue]})
 
     const tracks = queue.tracks.slice(0,10).map((track, i) => {
-        return `${i + 1}. **[${track.title}](${track.url})** -- @${track.requestedBy.id}`
+        return `${i + 1}. **[${track.title}](${track.url})** -- @${track.requestedBy}`
     }).join('\n')
     
 
