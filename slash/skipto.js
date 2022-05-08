@@ -18,9 +18,10 @@ const run = async (client, interaction) => {
 
     if(qPosition > queue.tracks.length) return await interaction.reply({embeds: [noNum]})
 
+    let skipTrack = queue.tracks[qPosition - 1].title
     queue.skipTo(qPosition - 1)
     const skiptoMsg = new MessageEmbed()
-        .setDescription(`Skipped to **${queue.current.title}**`)
+        .setDescription(`Skipped to **${skipTrack}**`)
     
     await interaction.reply({embeds: [skiptoMsg]})
     
