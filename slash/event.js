@@ -1,6 +1,8 @@
 //wip
-const run = async (client, interaction) => {
+const { MessageEmbed } = require('discord.js');
 
+const run = async (client, interaction) => {
+    return await interaction.reply(`test event`);
 }
 
 module.exports = {
