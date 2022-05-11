@@ -1,8 +1,15 @@
 //wip
 const { MessageEmbed } = require('discord.js');
+const filestore = require('../handlers/filestore.js');
 
 const run = async (client, interaction) => {
-    return await interaction.reply(`test event`);
+    let name = interaction.options.getString("name")
+    let content = filestore.getevent(name)
+    if(content){
+        return await interaction.reply("test: playing event "+ name + ": \n>>> " + content);
+    } else {
+        return await interaction.reply(name + " is not a stored event.");
+    }
 }
 
 module.exports = {
