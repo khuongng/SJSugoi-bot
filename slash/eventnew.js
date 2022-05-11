@@ -5,8 +5,14 @@ const filestore = require('../handlers/filestore.js');
 const run = async (client, interaction) => {
     let name = interaction.options.getString("name")
     let content = interaction.options.getString("content")
+    let oldcontent = filestore.getevent(name);
     filestore.createevent(name, content);
-    return await interaction.reply("test: new event \""+ name + "\" with content \"" + content + "\"");
+    if (oldcontent){
+        return await interaction.reply("Replacing event \"" + name + "\" containing:\n> " + oldcontent + "\n with new content:\n>>> " + content)
+    }
+    else {
+        return await interaction.reply("Creating event \""+ name + "\" with content:\n>>> " + content);
+    }
 }
 
 module.exports = {
