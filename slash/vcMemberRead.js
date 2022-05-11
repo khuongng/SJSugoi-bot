@@ -1,18 +1,25 @@
 const fs = require('fs')
 
 const run = async (client, interaction) => {
-    const textFile = fs.readFileSync('./vcmembers.txt', {"encoding": "utf-8"})
+    const listPath = './vcmembers.txt'
 
-    try{
+    //check if file exists. Yes = read file, No = exception handling
+    if(fs.existsSync(listPath)){
+        const textFile = fs.readFileSync(listPath, {"encoding": "utf-8"})
+        try{
+            return interaction.reply('Last voice-call capture:' + '\n' + '\n' + textFile)
+        }
+        catch(err){
+                if(err){
+                    console.error(err)
+                    return interaction.reply(`Failed to list participants.`)
+                }
+        }
+    }
+    else{
+        return interaction.reply('There has been no last voice-call list captured.')
+    }
 
-        return interaction.reply('Last voice-call capture:' + '\n' + '\n' + textFile)
-    }
-    catch(err){
-            if(err){
-                console.error(err)
-                return interaction.reply(`Failed to list participants.`)
-            }
-    }
 }
 
 
