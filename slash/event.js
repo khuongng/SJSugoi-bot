@@ -6,7 +6,11 @@ const run = async (client, interaction) => {
     let name = interaction.options.getString("name")
     let content = filestore.getevent(name)
     if(content){
-        return await interaction.reply("test: playing event "+ name + ": \n>>> " + content);
+        return await interaction.reply({embeds: [new MessageEmbed()
+            .setColor('#0099ff')
+            .setTitle(name)
+            .setDescription(content)
+        ]});
     } else {
         return await interaction.reply(name + " is not a stored event.");
     }
