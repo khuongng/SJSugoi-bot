@@ -1,6 +1,9 @@
 const Discord = require("discord.js")
 require("dotenv").config()
 
+const child_process = require('child_process');
+child_process.execSync('node ./loadslash.js');
+
 const {Client, Intents} = require("discord.js")
 const {Player} = require("discord-player")
 
