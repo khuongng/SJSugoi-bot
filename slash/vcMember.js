@@ -3,8 +3,8 @@ const fs = require('fs')
 
 const run = async (client, interaction) => {
     let current = new Date(); //get current date+time
-    let cDate = current.getFullYear() + '-' + (current.getMonth() + 1) + '-' + current.getDate();
-    let cTime = current.getHours() + ":" + current.getMinutes() + ":" + current.getSeconds();
+    let cDate = (current.getMonth() + 1) + '-' + current.getDate() + '-' + current.getFullYear();
+    let cTime = current.getHours() + "hr" + current.getMinutes() + "m" + current.getSeconds() + "s";
     let dateTime = cDate + ' ' + cTime;
 
     let vc = interaction.options.getChannel("channel") //selected channel
@@ -32,7 +32,7 @@ const run = async (client, interaction) => {
         }
     }
     else{
-        return interaction.reply(`This command only work with voice channels.`)
+        return interaction.reply(`This command only works with voice channels.`)
     }
 
 }
