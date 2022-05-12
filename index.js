@@ -57,5 +57,5 @@ client.on("interactionCreate", async (interaction) => {
         return interaction.reply("No permissions.")
     slashcmd.run(client, interaction)
 })
-
+require('./moderate/moderate')(client);
 client.login(process.env.TOKEN)

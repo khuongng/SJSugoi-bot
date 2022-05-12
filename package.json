@@ -10,12 +10,12 @@
   "dependencies": {
     "@discordjs/opus": "^0.5.3",
     "@discordjs/rest": "^0.3.0",
+    "bad-words": "^3.0.4",
     "discord-api-types": "^0.26.1",
     "discord-player": "^5.2.2",
     "discord.js": "^13.6.0",
     "dotenv": "^16.0.0"
   },
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/khuongng/SJSugoi-bot.git"
