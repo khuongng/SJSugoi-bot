@@ -1,16 +1,20 @@
-#**Installation instructions:**
+Installation instructions:
 - Pull the code from the Github
 - In the folder where index.js is located, open a Git Bash terminal and run the following commands:
-  -- npm init
-  -- npm i discord.js
-  -- npm i --save discord-player
-  -- npm i --save @discordjs/opus
-  -- npm i bad-words
+    npm init
+    npm i discord.js
+    npm i --save discord-player
+    npm i --save @discordjs/opus
+    npm i bad-words
 - Use the following tutorial to install FFMPEG
 https://www.geeksforgeeks.org/how-to-install-ffmpeg-on-windows/
+- Create file .env with the text "TOKEN=" and the token provided by Discord's bot developer panel
 
-#**Startup instructions:**
+Startup instructions:
+- Open a terminal or command line inside the folder containing index.js
+- Run the following command:
+    node .
+- To exit the bot, press CTRL and C in the terminal window
 
-
-#**Usage instructions:**
+Usage instructions:
 
