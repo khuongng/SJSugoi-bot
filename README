@@ -1,4 +1,4 @@
-Installation instructions:
+#**Installation instructions:**
 - Pull the code from the Github
 - In the folder where index.js is located, open a Git Bash terminal and run the following commands:
   -- npm init
@@ -9,8 +9,8 @@ Installation instructions:
 - Use the following tutorial to install FFMPEG
 https://www.geeksforgeeks.org/how-to-install-ffmpeg-on-windows/
 
-Startup instructions:
+#**Startup instructions:**
 
 
-Usage instructions:
+#**Usage instructions:**
 
