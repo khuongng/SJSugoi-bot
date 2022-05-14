@@ -14,7 +14,46 @@ Startup instructions:
 - Open a terminal or command line inside the folder containing index.js
 - Run the following command:
     node .
-- To exit the bot, press CTRL and C in the terminal window
+- To shut down the bot, press CTRL and C in the terminal window
 
 Usage instructions:
+- All commands are formatted as the name of the command prefixed with a forward slash, sometimes followed by arguments
+- Arguments are denoted as
+    [argumentname]
+  and should be written as
+    argumentname: value of the argument
+- Optional arguments are denoted with a * symbol
 
+/play [search]
+    Searches for a song and, if found, adds it to the queue of songs to be played in the voice channel.
+/pause
+    Pauses the current song and queue.
+/resume
+    Resumes playing music after a /pause.
+/queue
+    Displays the current list of songs to be played, including the current song.
+/remove [queue-position*]
+    Removes the song at the indicated position in the queue. Defaults to the currently-playing song (synonymous with /skip) if not given an argument.
+/skip
+    Skips the currently playing song
+/skipto [queue-position]
+    A variant of /skip. Skips all songs up to the indicated position in the queue.
+/stop
+    Stops the bot and empties the queue.
+/track
+    Displays information about the current song.
+
+/eventnew [name] [content]
+    Used to create a new event for future use. As a precaution, when overwriting a previous event with the same name, it posts the old content before overwriting.
+/event [name]
+    Used to make the bot post the content from a previously-created event.
+/eventdel [name]
+    Used to delete a previously created event. As a precaution, it posts the content of the event before deleting it.
+    
+/vcmember [channel]
+    Creates a file containing the usernames and account names of every user in the voice channel.
+/vclist
+    Posts the content of the most recently-created attendance recording from /vcmember.
+    
+/timeout [user] [duration] [reason*]
+    Part of the moderation feature. Forcibly times out the user for the duration, preventing them from sending messages.
